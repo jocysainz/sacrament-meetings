@@ -5,13 +5,14 @@ export default function Home() {
   return (
     <main className="text-center py-8">
       <div className="relative w-full max-w-2xl h-64 sm:h-80 mx-auto rounded-xl overflow-hidden shadow-md mb-8">
-        <Image
-          src="https://images.unsplash.com/photo-1548625361-195973d43dbb?auto=format&fit=crop&w=1200&q=80"
+      <Image
+          src="/chapel.jpg.webp"
           alt="Peaceful chapel sanctuary with rows of benches"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
-        />
+        />  
       </div>
 
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
