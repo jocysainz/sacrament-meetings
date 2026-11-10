@@ -1,0 +1,27 @@
+import { getMeetingById } from '@/lib/meetings-db';
+
+interface RouteContext {
+  params: Promise<{ id: string }>;
+}
+
+export async function GET(_request: Request, context: RouteContext) {
+  const { id } = await context.params;
+  const numId = parseInt(id, 10);
+
+  if (isNaN(numId)) {
+    return Response.json(
+      { error: 'Invalid ID. Must be an integer.' },
+      { status: 400 }
+    );
+  }
+
+  const meeting = getMeetingById(numId);
+  if (!meeting) {
+    return Response.json(
+      { error: 'Sacrament meeting not found.' },
+      { status: 404 }
+    );
+  }
+
+  return Response.json(meeting, { status: 200 });
+}
