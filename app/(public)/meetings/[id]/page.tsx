@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import { getMeetingById } from '@/lib/meetings-db';
 import MeetingDetail from '@/components/MeetingDetail';
 import PrintButton from '@/components/PrintButton';
@@ -15,7 +15,7 @@ export default async function MeetingDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const meeting = getMeetingById(numId);
+  const meeting = await getMeetingById(numId);
   if (!meeting) {
     notFound();
   }

@@ -1,4 +1,4 @@
-import { getMeetingById } from '@/lib/meetings-db';
+﻿import { getMeetingById } from '@/lib/meetings-db';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -15,7 +15,7 @@ export async function GET(_request: Request, context: RouteContext) {
     );
   }
 
-  const meeting = getMeetingById(numId);
+  const meeting = await getMeetingById(numId);
   if (!meeting) {
     return Response.json(
       { error: 'Sacrament meeting not found.' },
